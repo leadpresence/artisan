@@ -1,0 +1,159 @@
+{% extends "artisanstuple/baselayout.1.html" %}
+{% block title %} New user {% endblock %}
+{% block content %}
+<div class="view full-page-intro">
+
+      
+       
+  <div class="mask rgba-white d-flex justify-content-center align-items-center">
+
+
+    <div class="container">
+        <h1 style="text-align:center;color:blueviolet">Create An  Account</h1>
+        <div class="row d-flex h-100 justify-content-center align-items-center ">
+<!--Modal: Login / Register Form-->
+<div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog cascading-modal" role="document">
+      <!--Content-->
+      <div class="modal-content">
+  
+        <!--Modal cascading tabs-->
+        <div class="modal-c-tabs">
+  
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-2" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#login_tab" role="tab"><i class="fa fa-user mr-1"></i>
+                Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#register-tab" role="tab"><i class="fa fa-user-plus mr-1"></i>
+                Register</a>
+            </li>
+          </ul>
+  
+          <!-- Tab panels -->
+          <div class="tab-content">
+            <!--login_tab-->
+            <div class="tab-pane fade in show active" id="login_tab" role="tabpanel">
+  
+              <!--Body-->
+              <form>              
+                <div class="modal-body mb-1">
+                <div class="md-form form-sm mb-5">
+                  <i class="fa fa-envelope prefix"></i>
+                  <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                  <label data-error="wrong" data-success="right" for="modalLRInput10">Your email</label>
+                </div>
+  
+                <div class="md-form form-sm mb-4">
+                  <i class="fa fa-lock prefix"></i>
+                  <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                  <label data-error="wrong" data-success="right" for="modalLRInput11">Your password</label>
+                </div>
+                <div class="text-center mt-2">
+                  <button class="btn btn-info">Log in <i class="fa fa-sign-in ml-1"></i></button>
+                </div>
+              </div>
+              <!--Footer-->
+              <div class="modal-footer">
+                <div class="options text-center text-md-right mt-1">
+                  <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                  <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                </div>
+                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+              </div>
+  
+            </div>
+          </form>
+
+            <!--/.login_tab-->
+  
+            <!--register-tab-->
+            <div class="tab-pane fade" id="register-tab" role="tabpanel">
+  
+              <!--Body-->
+              <form name="form_reg_artisan" action="" method="POST" > 
+                  {% csrf_token %}
+              <div class="modal-body">
+                  <div class="md-form form
+                  -sm mb-5">
+                      <i class="fa fa-user prefix"></i> 
+                      {{form.artisan_name}} <!--<input type="text" name="" class="form-control form-control-sm validate">-->
+                      <label data-error="wrong" data-success="right" for="modalLRInput12">Name</label>
+                    </div>
+                <div class="md-form form-sm mb-5">
+                  <i class="fa fa-envelope prefix"></i>
+                  {{form.artisan_email}} <!--<input type="email" name="" class="form-control form-control-sm validate">-->
+                  <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                </div>
+  
+                <div class="md-form form-sm mb-5">
+                  <i class="fa fa-lock prefix"></i>
+                  {{form.artisan_password}} <!-- <input type="password" name="{{form.artisan_password}}" class="form-control form-control-sm validate">-->
+                  <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                </div>
+  
+                <div class="md-form form-sm mb-4">
+                  <i class="fa fa-lock prefix"></i>
+                  {{form.artisan_repeat_password}} <!-- <input type="password" name="" class="form-control form-control-sm validate">-->
+                  <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                </div>
+                <div class="md-form form-sm mb-4">
+                  <i class="fa fa-phone prefix"></i>
+                  {{form.artisan_phone}}<!--<input type="number" id="" class="form-control form-control-sm validate">-->
+                  <label data-error="wrong" data-success="right" for="phone">Phone:0-XXXXXXXXXX</label>
+                </div>
+                <div class="form-row">
+                  <!-- Grid column -->
+                  <div class="col-md-6">
+                    <i class="fa fa-map prefix"></i>
+                     <label for="state_of_origin">Location</label><br>
+                     {{ form.state_of_origin}}
+                    <div class="md-form form-group">
+                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <i class="fa fa-gear prefix"></i>
+                    <label for="inputFirstName">Focused Skill</label>
+                    {{ form.artisan_skill}}
+                    <div class="md-form mdb-select form-group">
+                  
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center form-sm mt-2">
+                  <button class="btn btn-info">Register <i class="fa fa-sign-in ml-1"></i></button>
+                </div>
+              
+
+              </div>
+            </form>
+              <!--Footer-->
+              <div class="modal-footer">
+                <div class="options text-right">
+                  <p class="pt-1">Already have an account? <a href="#login_tab" class="blue-text">Log In</a></p>
+                </div>
+                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- register-tab-->
+          </div>
+  
+        </div>
+      </div>
+      <!--/. Modal Content-->
+    </div>
+  </div>
+  <!--Modal: Login / Register Form-->
+  
+  <div class="text-center">
+    <a href="" class="btn btn-default btn-rounded my-3" data-toggle="modal" data-target="#modalLRForm">LogIn/Register</a>
+  </div>
+
+  </div><!--container-->
+  </div><!--container sec-->
+  </div><!--container third-->
+  </div><!--container content-->
+  {%  endblock %}

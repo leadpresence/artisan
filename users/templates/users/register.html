@@ -1,0 +1,95 @@
+{% extends "artisanstuple/baselayout.1.html" %}
+{% block title %} New user {% endblock %}
+{% block content %}
+<div class="view full-page-intro">
+
+      
+       
+        <div class="mask rgba-white d-flex justify-content-center align-items-center">
+      
+      
+          <div class="container">
+              <h1 style="text-align:center;color:blueviolet">Create An  Account</h1>
+              <div class="row d-flex h-100 justify-content-center align-items-center ">
+                
+                 <form method="POST">
+        {% csrf_token %}
+
+       
+       
+        <div class="form-row">
+            <!-- Grid column -->
+            <div class="col-md-6">
+              <!-- Material input -->
+              <label for="inputFirstName">Name</label>
+              <div class="md-form form-group">
+                  <!--<label for="inputFirstName">First Name</label>-->
+               {{ form.firstname  }} <!--<input (class='form-control') type="text" class="form-control" id="inputFirstName" placeholder="First Name" name="inputFirstName">-->
+               
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">            <!-- Grid column -->
+            <div class="col-md-6">
+              <!-- Material input -->
+              <label for="inputFirstName">Phone</label>
+              <div class="md-form form-group">
+                <!--<input type="text" class="form-control" id="inputPhone" name="inputPhone" placeholder="0XX-11206-1117">-->
+                {{ form.phone }}
+              </div>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <div class="form-row">            <!-- Grid column -->
+            <div class="col-md-6">
+              <!-- Material input -->
+              <label for="inputFirstName">Email</label>
+              <div class="md-form form-group">
+                <!--<input type="text" class="form-control" id="inputPhone" name="inputPhone" placeholder="0XX-11206-1117">-->
+                {{ form.email }}
+                {% for errors in error %}
+               <div class="invalid-feedback"><p style="color:red">Email is incorrect or Alredy exists</p>/div>
+               {% endfor%}
+              </div>
+            </div>
+            <!-- Grid column -->
+          </div>
+       
+        
+          <!-- Grid row -->
+          <button type="submit" class="btn btn-primary btn-md">Register</button>
+
+      </form>
+
+             
+      
+            </div>
+            <!--Grid row-->
+      
+          </div>
+          <!-- Content -->
+      
+        </div>
+        <!-- Mask & flexbox options-->
+      
+      </div>
+      <!-- Full Page Intro -->
+      
+     
+      
+      <!--Main layout-->
+      <main>
+      <div class="container">
+      
+      
+      
+  
+      
+      <!--Section: More-->
+     
+      <!--Section: More-->
+      
+      </div>
+      </main>
+{% endblock %}
